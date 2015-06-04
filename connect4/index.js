@@ -3,52 +3,100 @@ $(document).ready(function() {
   var connect = new Connect();
   connect.generateGrid();
  
-  // connect.renderGrid();
 var count=0;
 $('div').click(function(){
-//var col = this.Find('id');
-//console.log(this)
 var colid = $(this).attr("class")
-
-console.log("colid:"+colid)
-
+//console.log("colid:"+colid)
 var col = $('.'+colid);
-
-//console.log(col)
 count++;
+
 if(count%2===1)
 {
 	//1st player
-	$( this ).addClass( "player1" );
+  var activeclass = "player1"
+
 }
 else
 {
-	$( this ).addClass( "player2" );
+  var activeclass = "player2"
+
 }
 
-// console.log(this)
-var cell = $(col[0]);
-
-
-for (var i = 5; i > 0; i--) {
- 
-if($('col'+ [i]).hasClass("player1"))
-{console.log(col[i])
-   
-     $('col'+ [i]).addClass('player2')
-     break;
+function column () {
+this.Column = [col[0],col[1],col[2],col[3],col[4],col[5]]
 }
-else
+var newcolumn = column();
+var yourClick = Column;
+console.log(yourClick)
+
+for (var i = 5; i > -1; i--) {
+if(!$(Column[i]).hasClass("player1"))
+ {
+  if(!$(Column[i]).hasClass("player2"))
 {
-    console.log("hello there", col[i])
-    console.log("this is i", i)
+    console.log("now col equals...", Column[i])
+    $(Column[i]).addClass(activeclass)
+    break;
 }
 
 }
+}
+
+
+
+
 // console.log(col[i])
-$('col'+ [6]).addClass("player1")
-console.log("Added", col[6])
-console.log("this", this)
+//$('col'+ [6]).addClass("player1")
+
+
+
+
+
+
+// var sibs = $(this).siblings(".1")
+// console.log("sibs",sibs)
+//  var $thatInput = $(this).siblings("selected").text;
+//  console.log($thatInput)
+
+
+
+// var thisthis = this;
+// var sibs = $('#Grid', 'td', 'tr', '.1').siblings();
+// console.log("thisthis=", thisthis)
+// console.log("sibs =", sibs);
+
+// $('.1').prev().addClass('player1')
+// var prevvv = col[3]
+
+
+// console.log(col);
+// var thisthis = $(this)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var next = thisthis.next();
+// console.log($("#grid .2").prevUntil());
+// console.log("this is next", next);
+// var number = 1;
+
+
+ 
+
+
 
 });
 });
