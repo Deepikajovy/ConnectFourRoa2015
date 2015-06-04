@@ -6,7 +6,15 @@ $(document).ready(function() {
   // connect.renderGrid();
 var count=0;
 $('div').click(function(){
+//var col = this.Find('id');
+console.log(this)
+var colid = $(this).attr("class")
 
+console.log("colid:"+colid)
+
+var col = $('.'+colid);
+
+console.log(col)
 count++;
 if(count%2===1)
 {
@@ -18,11 +26,15 @@ else
 	$( this ).addClass( "player2" );
 }
 
-console.log(this)
-
-for (var i = 0; i < 6; i++) {
-	if(this.())
-};
+// console.log(this)
+$('col').each(function(i, ) {
+// for (var i = 6; i > 0; i--) {
+ // var s=console.log((col[i]).attr("class"));
+// if(!$(this).hasClass("player1"))
+// {
+//    col[i].addClass('player1') ;
+// }
+// }
 
 });
 });

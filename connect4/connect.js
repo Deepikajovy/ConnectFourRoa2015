@@ -15,7 +15,7 @@ var table='<table>'
 	    for (var j = 0; j < size; j++) 
 	    {
 	    	count++;
-			table+='<td>'+'<div id='+count+'></div>'+'</td>';
+			table+='<td>'+'<div class='+count+'></div>'+'</td>';
 	    }
 	    table+='</tr>';  
 	    count=0;
