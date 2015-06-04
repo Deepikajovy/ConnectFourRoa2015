@@ -7,15 +7,16 @@ $(document).ready(function () {
 
     $('div').click(function () {
      
-      var colid = $(this).attr("class")
-      console.log(colid);
+      var colclass = $(this).attr("class");
+      
+     
 
-      var col = $('.' + colid);
-      console.log(col); 
+      var col = $('.' + colclass);
+      
 
       for (var i = 5; i >= 0; i--) {
 
-        console.log(col[i]);
+      
 
         if (!$(col[i]).hasClass("player1") && !$(col[i]).hasClass("player2")) {
 
@@ -23,10 +24,16 @@ $(document).ready(function () {
           if (count % 2 === 1) {
             //1st player
             $(col[i]).addClass("player1");
+             var colid=$(col[i]).attr("id")
+              winningconditions(colid);
+            
             break;
           }
-          else {
+          else
+           {
             $(col[i]).addClass("player2");
+               var colid=$(col[i]).attr("id")
+              winningconditions(colid);
             break;
           }
         }
@@ -35,10 +42,23 @@ $(document).ready(function () {
     });
 
 
+/*
+
+Left Diagonal 
+  Do a -1, -1 on each coordinate until one of it reaches 0
+  Add +1, +1 on each coordinates until one of it reaches 5. Record all these coordinates
+  
+Right Diagonal  
+  Do a +1, -1 on each coordinate unit one of it reaches 5 or 0 
+  Do a -1, +1 on each coordinate until one of it reaches 0 or 5. Record all these coordinates
+  
+
+
+
+*/
 
 
 
 
-   
 });
 
