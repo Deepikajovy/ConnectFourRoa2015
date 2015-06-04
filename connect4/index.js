@@ -27,14 +27,14 @@ else
 }
 
 // console.log(this)
-$('col').each(function(i, ) {
-// for (var i = 6; i > 0; i--) {
- // var s=console.log((col[i]).attr("class"));
-// if(!$(this).hasClass("player1"))
-// {
-//    col[i].addClass('player1') ;
-// }
-// }
+
+for (var i = 6; i > 0; i--) {
+ 
+if(!$().hasClass("player1"))
+{
+   col[i].addClass('player1') ;
+}
+}
 
 });
 });
