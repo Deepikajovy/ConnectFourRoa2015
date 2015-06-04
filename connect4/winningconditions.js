@@ -3,9 +3,7 @@ var winningconditions = function(id)
 
 	var row=id[0];
 	var col=id[1];
-	// Left Diagonal 
-	//   Do a -1, -1 on each coordinate until one of it reaches 0
-	//   Add +1, +1 on each coordinates until one of it reaches 5. Record all these coordinates
+	
 	var row1=row;
 	var col1=col;
 
@@ -15,7 +13,7 @@ var winningconditions = function(id)
 		col1--;
 	}
 
-	//Row1 or Col1 will be 0
+	
 
 	var row2=row;
 	var col2=col;
@@ -24,7 +22,7 @@ var winningconditions = function(id)
 		row2++;
 		col2++;
 	}
-	//Row2 or Col2 will be 5
+	
 
 	var leftdiagonalList=[];
 	var last=row2.toString()+col2.toString();
