@@ -9,6 +9,7 @@
 	display: inline-block;
 	position:fixed;
 	background-color: black;
+/*	margin-left: 40%;*/
 		}	
 
 html, body { position: relative; height: 100%; text-align: center}

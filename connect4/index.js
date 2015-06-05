@@ -1,54 +1,63 @@
-$(document).ready(function() {
+var count = 0;
+
+$(document).ready(function () {
 
   var connect = new Connect();
-  connect.generateGrid();
- 
-  // connect.renderGrid();
-var count=0;
-$('div').click(function(){
-//var col = this.Find('id');
-//console.log(this)
-var colid = $(this).attr("class")
+  connect.generateGrid(); 
 
-console.log("colid:"+colid)
+    $('div').click(function () {
+     
+      var colclass = $(this).attr("class");
+      
+     
 
-var col = $('.'+colid);
+      var col = $('.' + colclass);
+      
+          count++;
+          if (count % 2 === 1) {
+            //1st player
+           var activeclass = "player1"           
+           
+          }
+          else
+           {
+            var activeclass = "player2" 
+           
+          }
+      for (var i = 5; i >= 0; i--) {
 
-//console.log(col)
-count++;
-if(count%2===1)
-{
-	//1st player
-	$( this ).addClass( "player1" );
-}
-else
-{
-	$( this ).addClass( "player2" );
-}
+      
 
-// console.log(this)
-var cell = $(col[0]);
+        if (!$(col[i]).hasClass("player1") && !$(col[i]).hasClass("player2")) {
+             $(col[i]).addClass(activeclass);
+             var colid=$(col[i]).attr("id")
+          
+              winningconditions(colid,activeclass);
+              
+              break;
+        }
+      }
+
+    });
 
 
-for (var i = 5; i > 0; i--) {
- 
-if($('col'+ [i]).hasClass("player1"))
-{console.log(col[i])
-   
-     $('col'+ [i]).addClass('player2')
-     break;
-}
-else
-{
-    console.log("hello there", col[i])
-    console.log("this is i", i)
-}
+/*
 
-}
-// console.log(col[i])
-$('col'+ [6]).addClass("player1")
-console.log("Added", col[6])
-console.log("this", this)
+Left Diagonal 
+  Do a -1, -1 on each coordinate until one of it reaches 0
+  Add +1, +1 on each coordinates until one of it reaches 5. Record all these coordinates
+  
+Right Diagonal  
+  Do a +1, -1 on each coordinate unit one of it reaches 5 or 0 
+  Do a -1, +1 on each coordinate until one of it reaches 0 or 5. Record all these coordinates
+  
+
+
+
+*/
+
+
+
 
 });
-});
+
