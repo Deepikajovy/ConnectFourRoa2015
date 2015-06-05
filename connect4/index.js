@@ -2,6 +2,11 @@ var count = 0;
 
 $(document).ready(function () {
 
+$('#grid').on('click', function(){
+playerSound.play();
+
+})
+
   var connect = new Connect();
   connect.generateGrid(); 
 

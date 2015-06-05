@@ -16,6 +16,7 @@ console.log()
  {
  	//alert("u won")
  	alert(activeclass + " WON!!!");
+
  }
 };
 
@@ -24,7 +25,6 @@ var leftdiagonal = function(id)
 
 	var row=id[0];
 	var col=id[1];
-	
 	var row1=row;
 	var col1=col;
 
@@ -34,23 +34,19 @@ var leftdiagonal = function(id)
 		col1--;
 	}
 
-	
-
 	var row2=row;
 	var col2=col;
+
 	while(row2<5&&col2<5)
 	{
 		row2++;
 		col2++;
 	}
 	
-
 	var leftdiagonalList=[];
 	var last=row2.toString()+col2.toString();
 	var initial=row1.toString()+col1.toString();
 
-	console.log(initial);
-	console.log(last);
 	while(initial<last+1)
 	{
 			leftdiagonalList.push(initial);
@@ -58,49 +54,41 @@ var leftdiagonal = function(id)
 			col1++;
 			initial=row1.toString()+col1.toString();
 	}
-	 return leftdiagonalList;
-
-
-
+	return leftdiagonalList;
 };
+
+
 var rightdiagonal = function(id)
 {	
-
-var row=id[0];
+	var row=id[0];
 	var col=id[1];
-	
 	var row1=row;
 	var col1=col;
 	var rightdiagonalList=[];
+
 	while(row1<5&&col1>0)
 	{
 		row1++;
 		col1--;
 	}
 	
-
 	var row2=row1;
 	var col2=col1;
 	var initial=row2.toString()+col2.toString();
+
 	while(row2>=0&&col2<=5)
 	{
 		rightdiagonalList.push(initial);
 		row2--;
 		col2++;
-		initial=row2.toString()+col2.toString();		
-
-
+		initial=row2.toString()+col2.toString();	
 	}	
 	return rightdiagonalList;
-
 };
-
-
 
 
 var columnvalues = function(id)
 {	
-
 	var row=id[0];
 	var col=id[1];	
 	var columnList=[];
@@ -110,15 +98,12 @@ var columnvalues = function(id)
 		columnList.push(columnid);
 		
 	}	
-	 return columnList;
-
+	return columnList;
 };
 
 
 var rowvalues = function(id)
 {	
-
-
 	var row=id[0];
 	var col=id[1];	
 	var rowList=[];
@@ -128,60 +113,47 @@ var rowvalues = function(id)
 		rowList.push(rowid);
 		
 	}	
-	 return rowList;
-
-
+	return rowList;
 }
-
-
 
 
 var checkWin = function(array, activeclass) 
 {
-
-
- var player1count = 0;
+	var player1count = 0;
     var player2count = 0;  
-  for(var i = 0;i <= array.length; i++)
-  {
-      
-      if ($('#'+array[i]).hasClass(activeclass))
+    var s="";
+    var last = 0;
 
-       {  
-       	if(activeclass==="player1")
-       	{
-          player1count += 1;
-       	}
-       	 else
-       {
-          player1count=0 ;
-       }
+   	for(var i = 0;i <= array.length; i++)
+  	{
+        if ($("#" + array[i]).hasClass("player1"))
+        {  
+       		if (last === 1 || last === 0) {
+       			player1count += 1;
+       		}	
+       		player2count = 0;
+       		last = 1;   
+        } 
 
-        if(activeclass==="player2")
-       	{
-       		 player2count += 1;
-       	}
-       		 else
-       {
-          player2count=0 ;
-       }
-       }
+        if ($("#" + array[i]).hasClass("player2"))
+        {
+        	if (last === 2 || last === 0) {
+       			player2count += 1;
+       		}
+   			player1count = 0;
+   			last = 2;  
+        }
+    }
 
-      
-
-  }
-console.log("countttttttttttttt",player1count,player2count);
-
-if(player1count>=4)
-{
-	return true   ;
-}
+	if(player1count>=4)
+	{
+		return true   ;
+	}
 
 
-if(player2count>=4)
-{
-	return true   ;
-} 
-
+	if(player2count>=4)
+	{
+		return true   ;
+	} 
 }
 
