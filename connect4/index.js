@@ -13,29 +13,28 @@ $(document).ready(function () {
 
       var col = $('.' + colclass);
       
-
+          count++;
+          if (count % 2 === 1) {
+            //1st player
+           var activeclass = "player1"           
+           
+          }
+          else
+           {
+            var activeclass = "player2" 
+           
+          }
       for (var i = 5; i >= 0; i--) {
 
       
 
         if (!$(col[i]).hasClass("player1") && !$(col[i]).hasClass("player2")) {
-
-          count++;
-          if (count % 2 === 1) {
-            //1st player
-            $(col[i]).addClass("player1");
+             $(col[i]).addClass(activeclass);
              var colid=$(col[i]).attr("id")
-              winningconditions(colid);
-            
-            break;
-          }
-          else
-           {
-            $(col[i]).addClass("player2");
-               var colid=$(col[i]).attr("id")
-              winningconditions(colid);
-            break;
-          }
+          
+              winningconditions(colid,activeclass);
+              
+              break;
         }
       }
 
