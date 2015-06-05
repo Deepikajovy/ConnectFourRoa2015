@@ -1,4 +1,4 @@
-
+/*
 
 
 #grid {
@@ -10,9 +10,9 @@
 	position:fixed;
 	background-color: black;
 /*	margin-left: 40%;*/
-		}	
+			
 
-html, body { position: relative; height: 100%; text-align: center}
+/*html, body { position: relative; height: 100%; text-align: center}
 
 
 .player1 {
@@ -39,5 +39,92 @@ div{
 	background-color: white;
 	height:100px;
 	width:100px;
+*/
 
+
+
+
+#activeplayer
+{
+background-color: black;
+height: 50px;
+margin: 5px;
+width:300px;
+margin-left: auto;
+  margin-right: auto;
+
+}
+#activeplayer h2 {
+color: white;
+
+
+}
+
+
+#grid 
+    {
+    
+    
+    display: inline-block;
+    
+    padding: 10px;
+    background-color: black;
+    margin-left: auto;
+   margin-right: auto;
+      }
+
+
+h1    
+    {
+    font-size: 50px;
+    color:Black;
+    background-color: white;
+    width:580px;
+      margin-left: auto;
+   margin-right: auto;
+    }              
+
+html, body 
+    { 
+    position: relative; 
+    height: 100%;
+    background-image: url("http://pictcool.com/wp-content/uploads/2015/04/Polka-Dot-Wallpapers-.png");
+    background-size: cover;
+    text-align: center
+    }
+
+
+.player1 {
+
+        
+        
+        background-image: url("http://www.buckybox.com/images/team-joshua-63101086.jpg");
+        background-size: cover;
+        
+        
+
+}
+.player2 {
+
+
+        background-image: url("https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAALQAAAAJGVjNzcwYzQzLWNmOTUtNDEzZS04ZTc3LTFjZjZhZTA0YTQwZg.jpg");
+        background-size: cover;
+
+}
+
+div{
+    position: relative;
+    border-radius: 50px;
+    background-color: white;
+    height:100px;
+    width:100px;
+
+}
+
+
+#my_beautiful_button{
+   position:absolute;
+   width: 100px;
+   left: 202px;
+   top: 198px;
 }
