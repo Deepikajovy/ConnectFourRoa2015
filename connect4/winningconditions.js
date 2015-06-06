@@ -1,16 +1,16 @@
 var winningconditions = function(id,activeclass)
 {
 var left =leftdiagonal(id);	
-var haswon = haswon || checkWin(left,activeclass)
+var haswon = haswon || checkWin(left)
 
 var right=rightdiagonal(id);
- haswon= haswon || checkWin(right,activeclass)
+ haswon= haswon || checkWin(right)
 
 var col=columnvalues(id);
- haswon= haswon || checkWin(col,activeclass)
+ haswon= haswon || checkWin(col)
 
 var row=rowvalues(id);
- haswon= haswon || checkWin(row,activeclass)	
+ haswon= haswon || checkWin(row)	
 console.log()
  if(haswon===true)
  {
@@ -117,43 +117,43 @@ var rowvalues = function(id)
 }
 
 
-var checkWin = function(array, activeclass) 
+var checkWin = function(array) 
 {
-	var player1count = 0;
-    var player2count = 0;  
-    var s="";
-    var last = 0;
+    var winningStreak = 1;
 
    	for(var i = 0;i <= array.length; i++)
   	{
-        if ($("#" + array[i]).hasClass("player1"))
-        {  
-       		if (last === 1 || last === 0) {
-       			player1count += 1;
-       		}	
-       		player2count = 0;
-       		last = 1;   
-        } 
+  		var currentCellClass = "";
+		if($("#"+array[i]).hasClass("player1"))
+		{
+			currentCellClass="player1";
+		}
+		else if($("#"+array[i]).hasClass("player2")) 
+		{
+			currentCellClass="player2";
+		}
 
-        if ($("#" + array[i]).hasClass("player2"))
+        if ($("#" + array[i+1]).hasClass(currentCellClass))
+        {  
+       		winningStreak++;       				
+        } 
+        else
         {
-        	if (last === 2 || last === 0) {
-       			player2count += 1;
-       		}
-   			player1count = 0;
-   			last = 2;  
+        	winningStreak = 1;
         }
+
+        if(currentCellClass === "")
+        {
+        	winningStreak = 1;
+        }
+
+        if(winningStreak >= 4)
+        {
+        	return true;
+        }
+        
     }
 
-	if(player1count>=4)
-	{
-		return true   ;
-	}
-
-
-	if(player2count>=4)
-	{
-		return true   ;
-	} 
+	return false;
 }
 
